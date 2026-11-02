@@ -26,7 +26,7 @@ Varje uppgift avslutas med: tester gröna, Q har sett resultatet, commit, `docs/
 - [x] Projektet ligger utanför OneDrive och originalet finns kvar tills Q bekräftar
 - [x] `git log` visar en första commit med dokumentationen
 - [x] `.env` är ignorerad
-**Verifiering:** `git status` rent, `git check-ignore .env` svarar `.env`. Q ser repot på GitHub.
+**Verifiering:** `git status` rent, `git check-ignore .env` svarar `.env`. Q ser repot på GitHub. ✅ 2026-11-02
 **Beroenden:** inga (GitHub-repo från Q)
 **Filer:** `.gitignore`
 **Storlek:** XS
