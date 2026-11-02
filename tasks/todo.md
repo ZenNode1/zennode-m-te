@@ -23,9 +23,9 @@ Varje uppgift avslutas med: tester gröna, Q har sett resultatet, commit, `docs/
 ### T1: Flytta projektet, skapa git-repo och första commit
 **Beskrivning:** Kopiera projektet från OneDrive till vald plats. Initiera git, lägg till `.gitignore` (med `.env`, `node_modules`), committa dokumentationen. Koppla till Q:s privata GitHub-repo.
 **Acceptans:**
-- [ ] Projektet ligger utanför OneDrive och originalet finns kvar tills Q bekräftar
-- [ ] `git log` visar en första commit med dokumentationen
-- [ ] `.env` är ignorerad
+- [x] Projektet ligger utanför OneDrive och originalet finns kvar tills Q bekräftar
+- [x] `git log` visar en första commit med dokumentationen
+- [x] `.env` är ignorerad
 **Verifiering:** `git status` rent, `git check-ignore .env` svarar `.env`. Q ser repot på GitHub.
 **Beroenden:** inga (GitHub-repo från Q)
 **Filer:** `.gitignore`
@@ -34,7 +34,7 @@ Varje uppgift avslutas med: tester gröna, Q har sett resultatet, commit, `docs/
 ### T2: Installera pnpm och Docker Desktop
 **Beskrivning:** Claude aktiverar pnpm via Corepack efter Q:s ok. Q installerar Docker Desktop.
 **Acceptans:**
-- [ ] `pnpm --version` svarar
+- [x] `pnpm --version` svarar
 - [ ] `docker run --rm hello-world` fungerar
 **Beroenden:** inga
 **Storlek:** XS
