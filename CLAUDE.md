@@ -69,7 +69,9 @@ prompts/            startpromptar för Claude Code
 Uppdatera listan när kommandona finns.
 
 - `pnpm install`: installera beroenden
-- `pnpm dev`: starta webben lokalt
+- `pnpm check`: typkontroll, lint, formatering och tester. Körs före varje commit.
+- `pnpm format`: formatera koden
+- `pnpm dev`: starta webben lokalt (finns efter T11)
 - `pnpm test`: kör alla tester
 - `pnpm db:migrate`: kör databasmigreringar
 - `pnpm brief -- --email <adress>`: skapa en brief från terminalen

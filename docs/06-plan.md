@@ -12,6 +12,7 @@ Steg 1 styrs nu av [CAPABILITY-MAP.md](../CAPABILITY-MAP.md), specarna `SPEC-<mo
 | --- | --- | --- |
 | 2026-11-02 | T1 | Projektet flyttat till `C:\dev\zennode-mote`, git-repo skapat, första commit. Kopplat till privat GitHub-repo `ZenNode1/zennode-m-te`. |
 | 2026-11-02 | T2 (del) | pnpm 12.16.1 aktiverat via Corepack i användarmappen. Docker Desktop väntar på Q. |
+| 2026-11-02 | T3 | Monorepo-skelett: TypeScript 6 strikt, Vitest, ESLint, Prettier, `pnpm check`. Bevisat att kontrollen stoppar typfel, `any`, default-export, fel formatering och fallerande test. |
 | | T0 | Väntar på Q: ansökan till Bolagsverket |
 
 ## Steg 1 – Brief (MVP), ursprunglig plan (ersatt)

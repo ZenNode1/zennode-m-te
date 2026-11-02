@@ -26,7 +26,16 @@ Grunden som alla andra moduler står på: kodstruktur, databas, isolering mellan
 
 ## Tech Stack
 
-Exakta versioner bestäms när projektet skapas och skrivs in här.
+Låsta versioner (2026-11-02):
+
+| Verktyg | Version | Varför |
+|---|---|---|
+| Node.js | 24 (LTS) | Installerad hos Q, stöds till april 2028. Byte till 26 kräver administratörsinstallation och tas vid behov. |
+| pnpm | 12.16.1 | Låst i `packageManager`. Installerar inga paketversioner yngre än 24 timmar (skydd mot kapade paket). |
+| TypeScript | 6.0.3 | TypeScript 7 stöds inte av typescript-eslint än. |
+| Vitest | 5.0.5 | |
+| ESLint | 10.14.0 + typescript-eslint 8.72.1 | |
+| Prettier | 3.9.10 | |
 
 | Del | Val | Notering |
 |---|---|---|

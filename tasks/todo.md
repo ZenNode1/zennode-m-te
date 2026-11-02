@@ -42,8 +42,8 @@ Varje uppgift avslutas med: tester gröna, Q har sett resultatet, commit, `docs/
 ### T3: Monorepo-skelett
 **Beskrivning:** Rot-`package.json`, `pnpm-workspace.yaml`, gemensam `tsconfig` med `strict`, Vitest, ESLint, Prettier, `.nvmrc`, `.env.example`. Skriptet `pnpm check` kör typecheck, lint och test.
 **Acceptans:**
-- [ ] `pnpm install` och `pnpm check` går igenom på ett tomt projekt med ett exempeltest
-- [ ] Node-version låst i `.nvmrc` och `package.json`
+- [x] `pnpm install` och `pnpm check` går igenom på ett tomt projekt med ett exempeltest
+- [x] Node-version låst i `.nvmrc` och `package.json`
 **Verifiering:** `pnpm check`
 **Beroenden:** T1, T2
 **Filer:** `package.json`, `pnpm-workspace.yaml`, `tsconfig.base.json`, `vitest.config.ts`, `eslint.config.js`, `.nvmrc`
