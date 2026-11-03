@@ -27,6 +27,16 @@ Bevisen anropar riktiga tjänster med nycklar från `.env`. De körs bara lokalt
 - En tjänst där alla punkter är "ej tillämplig" blir aldrig grön.
 - Saknas ett konto eller en nyckel blir tjänsten "blockerad" utan att något anropas.
 
+## Spärr mot personuppgifter
+
+`pnpm proof:scrub` letar efter e-postadresser, personnummer, telefonnummer och namn i `fixtures/`, `result.json` och `VERIFIED.md`. Den körs automatiskt före varje commit och stoppar commiten vid träff. Hooken aktiveras av `pnpm install`.
+
+Rolladresser som `info@` och reserverade domäner som `example.com` är tillåtna. Är en träff inte en person, lägg ett motiverat undantag i `scrub-allow.json`:
+
+```json
+[{ "value": "Exakt text", "reason": "Varför det inte är en person" }]
+```
+
 ## Skriva ett nytt bevis
 
 Kopiera `example/proof.ts` till `<tjänst>/proof.ts`. Varje punkt är antingen en funktion som anropar tjänsten eller `{ notApplicable: "motivering" }`.

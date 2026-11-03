@@ -14,6 +14,7 @@ Steg 1 styrs nu av [CAPABILITY-MAP.md](../CAPABILITY-MAP.md), specarna `SPEC-<mo
 | 2026-11-02 | T2 (del) | pnpm 12.16.1 aktiverat via Corepack i användarmappen. Docker Desktop väntar på Q. |
 | 2026-11-02 | T3 | Monorepo-skelett: TypeScript 6 strikt, Vitest, ESLint, Prettier, `pnpm check`. Bevisat att kontrollen stoppar typfel, `any`, default-export, fel formatering och fallerande test. |
 | 2026-11-03 | T4 | Testverktyget `pnpm proof` klart. Grönt mot låtsastjänst på alla nio punkter. Stoppar vid första fel, godkänner inga tomma punkter, sparar aldrig nycklar i fixtures. 18 tester. `proofs/STATUS.md` visar 0 av 16. |
+| 2026-11-03 | T5 | `pnpm proof:scrub` hittar e-post, personnummer (med kontrollsiffra), telefonnummer och namn i bevisfiler. Spärr före commit via `.githooks`, inga nya beroenden. Bevisat: commit med påhittad e-post stoppas, ren fil går igenom. 30 tester. |
 | | T0 | Väntar på Q: ansökan till Bolagsverket |
 
 ## Steg 1 – Brief (MVP), ursprunglig plan (ersatt)

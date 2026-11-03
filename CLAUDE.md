@@ -73,6 +73,7 @@ Uppdatera listan när kommandona finns.
 - `pnpm format`: formatera koden
 - `pnpm proof <tjänst> [--step 1-9]`: testa en extern tjänst skarpt (bara lokalt, med Q:s ok)
 - `pnpm proof:status`: uppdatera `proofs/STATUS.md`
+- `pnpm proof:scrub`: leta efter personuppgifter i bevisfiler (körs automatiskt före varje commit)
 - `pnpm dev`: starta webben lokalt (finns efter T11)
 - `pnpm test`: kör alla tester
 - `pnpm db:migrate`: kör databasmigreringar

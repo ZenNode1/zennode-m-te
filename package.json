@@ -14,7 +14,9 @@
     "test": "vitest run",
     "check": "pnpm typecheck && pnpm lint && pnpm format:check && pnpm test",
     "proof": "node --disable-warning=ExperimentalWarning proofs/cli.ts run",
-    "proof:status": "node --disable-warning=ExperimentalWarning proofs/cli.ts status"
+    "proof:status": "node --disable-warning=ExperimentalWarning proofs/cli.ts status",
+    "proof:scrub": "node --disable-warning=ExperimentalWarning proofs/cli.ts scrub",
+    "prepare": "git config core.hooksPath .githooks"
   },
   "devDependencies": {
     "@eslint/js": "^10.0.1",

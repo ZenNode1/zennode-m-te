@@ -1,9 +1,11 @@
-import { existsSync, readFileSync, writeFileSync } from "node:fs";
+import { execFileSync } from "node:child_process";
+import { existsSync, readdirSync, readFileSync, writeFileSync } from "node:fs";
 import { dirname, join } from "node:path";
 import { fileURLToPath, pathToFileURL } from "node:url";
 import { STEP_IDS, STEP_LABELS, type ProofDefinition, type StepId } from "./_shared/checklist.ts";
 import { renderStatus } from "./_shared/report.ts";
 import { runProof, type ProofResult } from "./_shared/runner.ts";
+import { isScannedPath, scanText, type AllowEntry } from "./_shared/scrub.ts";
 import { SERVICES } from "./_shared/services.ts";
 
 const proofsDir = dirname(fileURLToPath(import.meta.url));
@@ -95,9 +97,62 @@ async function run(service: string, args: readonly string[]): Promise<number> {
   return result.status === "green" ? 0 : 1;
 }
 
+const KIND_LABELS = {
+  email: "e-postadress",
+  personnummer: "personnummer",
+  phone: "telefonnummer",
+  name: "namn",
+} as const;
+
+function git(args: readonly string[]): string {
+  return execFileSync("git", args, { cwd: rootDir, encoding: "utf8" });
+}
+
+/** Files to scan: staged proof output (pre-commit) or all proof output on disk. */
+function scrubTargets(staged: boolean): { path: string; read: () => string }[] {
+  if (staged) {
+    return git(["diff", "--cached", "--name-only", "-z", "--diff-filter=ACMR"])
+      .split("\0")
+      .filter((path) => path !== "" && isScannedPath(path))
+      .map((path) => ({ path, read: () => git(["show", `:${path}`]) }));
+  }
+  return readdirSync(proofsDir, { recursive: true, encoding: "utf8" })
+    .map((relative) => `proofs/${relative.replaceAll("\\", "/")}`)
+    .filter(isScannedPath)
+    .map((path) => ({ path, read: () => readFileSync(join(rootDir, path), "utf8") }));
+}
+
+function scrub(staged: boolean): number {
+  const allowFile = join(proofsDir, "scrub-allow.json");
+  const allow = existsSync(allowFile)
+    ? (JSON.parse(readFileSync(allowFile, "utf8")) as AllowEntry[])
+    : [];
+  const targets = scrubTargets(staged);
+  let total = 0;
+  for (const target of targets) {
+    for (const finding of scanText(target.read(), allow)) {
+      total += 1;
+      console.error(
+        `  ${target.path}:${finding.line}  ${KIND_LABELS[finding.kind]}  ${finding.masked}`,
+      );
+    }
+  }
+  if (total > 0) {
+    console.error(
+      `\nStoppat: ${total} möjliga personuppgifter i bevisfiler. Ta bort dem, eller lägg ett ` +
+        `motiverat undantag i proofs/scrub-allow.json om det inte är en person.`,
+    );
+    return 1;
+  }
+  console.log(`Inga personuppgifter hittade (${targets.length} filer kontrollerade).`);
+  return 0;
+}
+
 const [command, service, ...rest] = process.argv.slice(2);
 if (command === "status") {
   console.log(`Status: ${writeStatus()}`);
+} else if (command === "scrub") {
+  process.exitCode = scrub(process.argv.includes("--staged"));
 } else if (command === "run" && service) {
   process.exitCode = await run(service, rest);
 } else {

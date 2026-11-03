@@ -72,8 +72,8 @@ Varje uppgift avslutas med: tester gröna, Q har sett resultatet, commit, `docs/
 ### T5: Kontroll av personuppgifter i fixtures
 **Beskrivning:** `pnpm proof:scrub` letar efter e-post, personnummer, telefonnummer och vanliga svenska namn i fixtures. Körs automatiskt före commit.
 **Acceptans:**
-- [ ] En fixture med påhittad e-postadress stoppar committen
-- [ ] En ren fixture går igenom
+- [x] En fixture med påhittad e-postadress stoppar committen
+- [x] En ren fixture går igenom
 **Verifiering:** `pnpm test proofs/_shared/scrub`, prova en commit med smutsig fixture
 **Beroenden:** T4
 **Filer:** `proofs/_shared/scrub.ts`, pre-commit-konfiguration
@@ -151,7 +151,7 @@ Varje uppgift avslutas med: tester gröna, Q har sett resultatet, commit, `docs/
 **Storlek:** S
 
 ### T12: CI
-**Beskrivning:** GitHub Actions kör `pnpm check` och RLS-tester mot Postgres. gitleaks, Dependabot, `pnpm audit` och statisk analys (CodeQL eller Semgrep enligt Q:s val).
+**Beskrivning:** GitHub Actions kör `pnpm check`, RLS-tester mot Postgres och `pnpm proof:scrub` på alla bevisfiler (fångar commits där hooken saknades eller kringgicks). gitleaks, Dependabot, `pnpm audit` och statisk analys (CodeQL eller Semgrep enligt Q:s val).
 **Acceptans:**
 - [ ] CI grönt på huvudgrenen
 - [ ] En falsk nyckel i en testgren stoppas

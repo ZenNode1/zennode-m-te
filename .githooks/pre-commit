@@ -1,0 +1,4 @@
+#!/bin/sh
+# Stops a commit when proof output contains personal data.
+# Activated by `pnpm install` (prepare script sets core.hooksPath).
+exec node --disable-warning=ExperimentalWarning proofs/cli.ts scrub --staged
