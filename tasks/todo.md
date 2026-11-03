@@ -61,9 +61,9 @@ Varje uppgift avslutas med: tester gröna, Q har sett resultatet, commit, `docs/
 ### T4: Testverktyg för tjänster
 **Beskrivning:** `proofs/_shared/` med `defineProof`, de nio punkterna som typ, inspelning av svar (body, status, headers) till fixtures, tidtagning (p50/p95), generering av `VERIFIED.md` och `proofs/STATUS.md`. Kommandona `pnpm proof <tjänst>` och `pnpm proof:status`.
 **Acceptans:**
-- [ ] Ett exempelbevis mot en lokal låtsastjänst går igenom alla nio punkter
-- [ ] En punkt utan körning visas som `☐` med orsak, aldrig som grön
-- [ ] `STATUS.md` genereras med alla 16 tjänster
+- [x] Ett exempelbevis mot en lokal låtsastjänst går igenom alla nio punkter
+- [x] En punkt utan körning visas som `☐` med orsak, aldrig som grön
+- [x] `STATUS.md` genereras med alla 16 tjänster
 **Verifiering:** `pnpm test proofs`, `pnpm proof example`, öppna `proofs/STATUS.md`
 **Beroenden:** T3
 **Filer:** `proofs/_shared/checklist.ts`, `record.ts`, `timing.ts`, `report.ts`, `proofs/run.ts`

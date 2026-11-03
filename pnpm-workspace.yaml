@@ -1,6 +1,7 @@
 packages:
   - "apps/*"
   - "packages/*"
+  - "proofs"
 
 # Supply-chain protection: never install a package version younger than 24 hours.
 minimumReleaseAge: 1440

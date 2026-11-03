@@ -13,6 +13,11 @@ coverage/
 *.key
 *.pfx
 
+# Proof tool self-test output (regenerated on every run)
+proofs/example/fixtures/
+proofs/example/result.json
+proofs/example/VERIFIED.md
+
 # Logs and OS files
 *.log
 .DS_Store

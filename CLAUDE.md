@@ -71,6 +71,8 @@ Uppdatera listan när kommandona finns.
 - `pnpm install`: installera beroenden
 - `pnpm check`: typkontroll, lint, formatering och tester. Körs före varje commit.
 - `pnpm format`: formatera koden
+- `pnpm proof <tjänst> [--step 1-9]`: testa en extern tjänst skarpt (bara lokalt, med Q:s ok)
+- `pnpm proof:status`: uppdatera `proofs/STATUS.md`
 - `pnpm dev`: starta webben lokalt (finns efter T11)
 - `pnpm test`: kör alla tester
 - `pnpm db:migrate`: kör databasmigreringar

@@ -12,7 +12,9 @@
     "format": "prettier --write .",
     "format:check": "prettier --check .",
     "test": "vitest run",
-    "check": "pnpm typecheck && pnpm lint && pnpm format:check && pnpm test"
+    "check": "pnpm typecheck && pnpm lint && pnpm format:check && pnpm test",
+    "proof": "node --disable-warning=ExperimentalWarning proofs/cli.ts run",
+    "proof:status": "node --disable-warning=ExperimentalWarning proofs/cli.ts status"
   },
   "devDependencies": {
     "@eslint/js": "^10.0.1",
